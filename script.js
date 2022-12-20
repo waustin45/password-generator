@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-const lower = ["abcdefghijklmnopqrstuvwxyz"]
+const lower = ["abcdefghijklmnopqrstuvwxyz"].join('')
 const upper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 const specially = ["[]{}&^%$#@<>?*()"]
 const newArray = [...lower, ...specially].join("")
@@ -8,54 +8,52 @@ const firstCombo =[...lower, ...upper].join("")
 const thirdCombo = [...lower, ...upper, ...specially].join("")
 // Write password to the #password input
 function generatePassword () {
-  // sets the number of characters for password
+ 
 let randoNumb =""
-let password =""
-const characters = window.prompt("How many characters?")
+ // sets the number of characters for password
+const characters = window.prompt("How many characters?") - 1
 
 console.log("characters " + characters)
 
 
 
 console.log(newArray)
+// prompt for number of characters: true
 if (characters > 6 && characters < 16) {
   const fontStyle = window.confirm("Do you want UpperCase letters?")
+  // prompt for uppercase letters: true
     if (fontStyle) {
       const specialChar = window.confirm("Add special Characters?")
+      // prompt for special characters :true
         if (specialChar) {
           for (var i = 0; i <= characters; i++) {
             randoNumb += thirdCombo[Math.floor(Math.random() * thirdCombo.length)] ;
-           password += newArray.substring(randoNumb, randoNumb + 1)
+           
          }
-        } else {
+        } else { // false prompt for special characters
           for (var i = 0; i <= characters; i++) {
             randoNumb += firstCombo[Math.floor(Math.random() * firstCombo.length)] ;
-           password += newArray.substring(randoNumb, randoNumb + 1)
+           
          }
         }
-    } else {
+    } else { // false prompt for uppercase
       const specialChar = window.confirm("Add special Characters?")
       if (specialChar) {
         for (var i = 0; i <= characters; i++) {
           randoNumb += newArray[Math.floor(Math.random() * newArray.length)] ;
-         password += newArray.substring(randoNumb, randoNumb + 1)
+         
        }
-      } else {
+      } else { // false prompt for special characters 
         for (var i = 0; i <= characters; i++) {
           randoNumb += lower[Math.floor(Math.random() * lower.length)] ;
-         password += newArray.substring(randoNumb, randoNumb + 1)
+         
        }
       }
     }
-} else {
+} else { //false prompt for character #
   window.alert("Your password needs to be between 6 and 16 characters.")
 }
-// for (var i = 0; i <= characters; i++) {
-//    randoNumb += newArray[Math.floor(Math.random() * newArray.length)] ;
-//   password += newArray.substring(randoNumb, randoNumb + 1)
-  
- 
-// }
+
 return randoNumb;
 
 
