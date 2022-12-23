@@ -3,9 +3,10 @@ var generateBtn = document.querySelector("#generate");
 const lower = ["abcdefghijklmnopqrstuvwxyz"].join('')
 const upper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 const specially = ["[]{}&^%$#@<>?*()"]
-const newArray = [...lower, ...specially].join("")
-const firstCombo =[...lower, ...upper].join("")
-const thirdCombo = [...lower, ...upper, ...specially].join("")
+const numbers = ["1234567890"]
+const newArray = [...lower, ...specially, ...numbers].join("")
+const firstCombo =[...lower, ...upper, ...numbers].join("")
+const thirdCombo = [...lower, ...upper, ...specially, ...numbers].join("")
 // Write password to the #password input
 function generatePassword () {
  
